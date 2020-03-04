@@ -12,16 +12,15 @@ import './Button.css'
 export default props => {
 
     let classes = 'button '
-    classes +=
+    classes += props.operation ? 'double' : ''
+    classes += props.double ? 'operation' : ''
+    classes += props.triple ? 'operation' : ''
 
 return (
 
-    <button className={`
-        button
-        ${props.operation ? 'operation' : ''}
-        ${props.double ? 'double': ''}
-        ${props.triple ? 'triple': ''}
-    `}>
+    <button 
+        onClick={e => props.click(e.target.innerHTML)}
+        className={classes}>
         {props.label}
     </button>
 
